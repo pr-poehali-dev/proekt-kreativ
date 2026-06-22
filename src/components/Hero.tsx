@@ -36,12 +36,20 @@ export default function Hero() {
           Главное событие текстильной и швейной индустрии: фабрики, технологии,
           оборудование и бизнес-нетворкинг.
         </p>
-        <a
-          href="#program"
-          className="inline-block bg-white text-black px-8 py-3 text-sm uppercase tracking-wide font-medium transition-all duration-300 hover:bg-transparent hover:text-white border border-white"
-        >
-          Смотреть программу
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#register"
+            className="inline-block bg-white text-black px-8 py-3 text-sm uppercase tracking-wide font-medium transition-all duration-300 hover:bg-transparent hover:text-white border border-white"
+          >
+            Зарегистрироваться
+          </a>
+          <a
+            href="#program"
+            className="inline-block bg-transparent text-white px-8 py-3 text-sm uppercase tracking-wide font-medium transition-all duration-300 hover:bg-white hover:text-black border border-white"
+          >
+            Смотреть программу
+          </a>
+        </div>
       </div>
     </div>
   );
