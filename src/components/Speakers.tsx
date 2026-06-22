@@ -39,50 +39,63 @@ const speakers = [
   },
 ];
 
-const VISIBLE = 3;
-
 export default function Speakers() {
   const [current, setCurrent] = useState(0);
 
   const prev = () => setCurrent((c) => (c - 1 + speakers.length) % speakers.length);
   const next = () => setCurrent((c) => (c + 1) % speakers.length);
 
-  const getVisible = () =>
-    Array.from({ length: VISIBLE }, (_, i) => {
+  // На мобилке — 1 карточка, на десктопе — 3
+  const getVisible = (count: number) =>
+    Array.from({ length: count }, (_, i) => {
       const idx = (current + i) % speakers.length;
       return { ...speakers[idx], key: `${idx}-${i}` };
     });
 
   return (
-    <div id="speakers" className="bg-neutral-950 px-6 py-20 lg:py-28 overflow-hidden">
+    <div id="speakers" className="bg-neutral-950 px-4 sm:px-6 py-14 sm:py-20 lg:py-28 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <h3 className="uppercase mb-3 text-sm tracking-widest text-neutral-500">Спикеры</h3>
-        <div className="flex items-end justify-between mb-16">
-          <p className="text-3xl lg:text-5xl text-white leading-tight font-bold max-w-xl">
+        <h3 className="uppercase mb-3 text-xs sm:text-sm tracking-widest text-neutral-500">Спикеры</h3>
+        <div className="flex items-start sm:items-end justify-between mb-10 sm:mb-16 gap-4">
+          <p className="text-2xl sm:text-3xl lg:text-5xl text-white leading-tight font-bold max-w-xs sm:max-w-xl">
             Эксперты, которые знают индустрию изнутри
           </p>
-          <div className="flex gap-3">
+          <div className="flex gap-2 sm:gap-3 shrink-0">
             <button
               onClick={prev}
-              className="w-12 h-12 border border-neutral-700 flex items-center justify-center text-white hover:border-white transition-colors duration-300"
+              className="w-10 h-10 sm:w-12 sm:h-12 border border-neutral-700 flex items-center justify-center text-white hover:border-white transition-colors duration-300"
             >
-              <Icon name="ChevronLeft" size={20} />
+              <Icon name="ChevronLeft" size={18} />
             </button>
             <button
               onClick={next}
-              className="w-12 h-12 border border-neutral-700 flex items-center justify-center text-white hover:border-white transition-colors duration-300"
+              className="w-10 h-10 sm:w-12 sm:h-12 border border-neutral-700 flex items-center justify-center text-white hover:border-white transition-colors duration-300"
             >
-              <Icon name="ChevronRight" size={20} />
+              <Icon name="ChevronRight" size={18} />
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-neutral-800">
-          {getVisible().map((s) => (
-            <div
-              key={s.key}
-              className="bg-neutral-950 p-8 flex flex-col hover:bg-neutral-900 transition-colors duration-300"
-            >
+        {/* Мобилка: 1 карточка */}
+        <div className="sm:hidden bg-neutral-800">
+          {getVisible(1).map((s) => (
+            <div key={s.key} className="bg-neutral-950 p-6 flex flex-col">
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-neutral-600 to-neutral-800 flex items-center justify-center text-white text-lg font-bold mb-5 shrink-0">
+                {s.name.split(" ").map((w) => w[0]).join("")}
+              </div>
+              <h4 className="text-lg font-bold text-white mb-1">{s.name}</h4>
+              <p className="text-sm text-white/60 mb-3 font-medium">{s.topic}</p>
+              <p className="text-sm text-neutral-500 leading-relaxed pt-4 border-t border-neutral-800">
+                {s.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Десктоп: 3 карточки */}
+        <div className="hidden sm:grid sm:grid-cols-3 gap-px bg-neutral-800">
+          {getVisible(3).map((s) => (
+            <div key={s.key} className="bg-neutral-950 p-8 flex flex-col hover:bg-neutral-900 transition-colors duration-300">
               <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neutral-600 to-neutral-800 flex items-center justify-center text-white text-xl font-bold mb-6 shrink-0">
                 {s.name.split(" ").map((w) => w[0]).join("")}
               </div>
@@ -95,7 +108,7 @@ export default function Speakers() {
           ))}
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-6 sm:mt-8">
           {speakers.map((_, i) => (
             <button
               key={i}

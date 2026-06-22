@@ -31,17 +31,17 @@ const days = [
 
 export default function Featured() {
   return (
-    <div id="program" className="bg-white px-6 py-20 lg:py-28">
+    <div id="program" className="bg-white px-4 sm:px-6 py-14 sm:py-20 lg:py-28">
       <div className="max-w-6xl mx-auto">
-        <h3 className="uppercase mb-3 text-sm tracking-widest text-neutral-500">Программа</h3>
-        <p className="text-3xl lg:text-5xl mb-16 text-neutral-900 leading-tight font-bold">
+        <h3 className="uppercase mb-3 text-xs sm:text-sm tracking-widest text-neutral-500">Программа</h3>
+        <p className="text-2xl sm:text-3xl lg:text-5xl mb-10 sm:mb-16 text-neutral-900 leading-tight font-bold">
           Два дня, которые меняют индустрию
         </p>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
           {days.map((day) => (
             <div key={day.title}>
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
                 <span className="text-xs uppercase tracking-wide bg-black text-white px-3 py-1">
                   {day.accent}
                 </span>
@@ -49,21 +49,21 @@ export default function Featured() {
                   {day.badge}
                 </span>
               </div>
-              <h4 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-2">
+              <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-neutral-900 mb-2">
                 {day.title}
               </h4>
-              <div className="flex items-center gap-2 text-neutral-500 mb-8">
-                <Icon name="MapPin" size={16} />
-                <span className="text-sm">{day.location}</span>
+              <div className="flex items-center gap-2 text-neutral-500 mb-6 sm:mb-8">
+                <Icon name="MapPin" size={14} />
+                <span className="text-xs sm:text-sm">{day.location}</span>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {day.items.map((item) => (
-                  <div key={item.time} className="flex gap-4 border-l-2 border-neutral-200 pl-4">
-                    <div className="shrink-0 w-28 text-sm font-medium text-neutral-900">
+                  <div key={item.time} className="flex flex-col sm:flex-row gap-1 sm:gap-4 border-l-2 border-neutral-200 pl-3 sm:pl-4">
+                    <div className="shrink-0 sm:w-28 text-xs sm:text-sm font-semibold text-neutral-900">
                       {item.time}
                     </div>
-                    <p className="text-sm text-neutral-600 leading-relaxed">{item.text}</p>
+                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">{item.text}</p>
                   </div>
                 ))}
               </div>

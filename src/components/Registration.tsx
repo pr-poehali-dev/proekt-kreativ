@@ -13,14 +13,14 @@ export default function Registration() {
   };
 
   return (
-    <div id="register" className="bg-neutral-950 px-6 py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    <div id="register" className="bg-neutral-950 px-4 sm:px-6 py-14 sm:py-20 lg:py-28">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
         <div>
-          <h3 className="uppercase mb-3 text-sm tracking-widest text-neutral-500">Участие</h3>
-          <p className="text-3xl lg:text-5xl mb-6 text-white leading-tight font-bold">
+          <h3 className="uppercase mb-3 text-xs sm:text-sm tracking-widest text-neutral-500">Участие</h3>
+          <p className="text-2xl sm:text-3xl lg:text-5xl mb-4 sm:mb-6 text-white leading-tight font-bold">
             Зарегистрируйтесь на форум
           </p>
-          <p className="text-neutral-400 text-lg mb-10 leading-relaxed">
+          <p className="text-neutral-400 text-sm sm:text-base lg:text-lg mb-8 sm:mb-10 leading-relaxed">
             Два дня погружения в индустрию: фабрики, технологии, нетворкинг и конкурс «Золотая игла».
             Количество мест ограничено.
           </p>
@@ -46,7 +46,7 @@ export default function Registration() {
               <p className="text-neutral-400">Мы свяжемся с вами для подтверждения участия.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-neutral-900 border border-neutral-800 p-8 space-y-5">
+            <form onSubmit={handleSubmit} className="bg-neutral-900 border border-neutral-800 p-5 sm:p-8 space-y-4 sm:space-y-5">
               <div>
                 <label className="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Имя и фамилия *</label>
                 <input
