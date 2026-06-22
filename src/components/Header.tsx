@@ -4,21 +4,29 @@ interface HeaderProps {
 
 export default function Header({ className }: HeaderProps) {
   return (
-    <header className={`absolute top-0 left-0 right-0 z-10 p-6 ${className ?? ""}`}>
+    <header className={`absolute top-0 left-0 right-0 z-20 p-6 ${className ?? ""}`}>
       <div className="flex justify-between items-center">
-        <div className="text-white text-sm uppercase tracking-wide">lumino</div>
-        <nav className="flex gap-8">
+        <div className="text-white text-sm uppercase tracking-widest font-bold">
+          Индустрия будущего
+        </div>
+        <nav className="hidden md:flex gap-8">
           <a
-            href="#about"
+            href="#program"
             className="text-white hover:text-neutral-400 transition-colors duration-300 uppercase text-sm"
           >
-            О нас
+            Программа
           </a>
           <a
-            href="#contact"
+            href="#speakers"
             className="text-white hover:text-neutral-400 transition-colors duration-300 uppercase text-sm"
           >
-            Контакты
+            Спикеры
+          </a>
+          <a
+            href="#partners"
+            className="text-white hover:text-neutral-400 transition-colors duration-300 uppercase text-sm"
+          >
+            Партнёры
           </a>
         </nav>
       </div>
