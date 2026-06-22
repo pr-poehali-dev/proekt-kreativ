@@ -16,11 +16,11 @@ export default function Hero() {
     >
       <motion.div style={{ y }} className="absolute inset-0 w-full h-full">
         <img
-          src="/images/mountain-landscape.jpg"
+          src="https://cdn.poehali.dev/projects/831b1c8e-3bef-4cde-85f8-20f73a6dad2c/bucket/221ae388-8582-4283-b6d4-253cf71c9ed8.png"
           alt="Индустрия будущего"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover grayscale"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/55" />
       </motion.div>
 
       <div className="relative z-10 text-center text-white px-6">
